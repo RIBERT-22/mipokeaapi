@@ -47,11 +47,10 @@ const getPokemon = async (name) => {
 // --- Render de resultados individuales ---
 const renderSingle = (pokemon) => {
   if (!pokemon) {
-    pokemonCard.className = "card single-card empty";
-    pokemonCard.innerHTML =
-      '<p class="placeholder">Ups… ese Pokémon se escondió mejor que un Zubat en cueva. ¡Prueba con otro!.</p>';
+    pokemonCard.style.display = "none"; // Oculta si no hay datos
     return;
   }
+  pokemonCard.style.display = "block"; // Muestra la tarjeta si hay datos
 
   // Chips de tipos e info básica.
   const types = pokemon.types
@@ -191,3 +190,4 @@ const handleFighting = async () => {
 // Eventos
 searchForm?.addEventListener("submit", handleSearch);
 fightingButton?.addEventListener("click", handleFighting);
+
