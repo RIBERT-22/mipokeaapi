@@ -1,0 +1,555 @@
+:root {
+  --bg: #f7f4ec;
+  --bg-alt: #1e1e1e;
+  --card: #ffffff;
+  --accent: #b22222;     /* rojo Fighting */
+  --accent-strong: #ff8c00; /* naranja intenso */
+  --text: #2d2a32;
+  --muted: #fcfbfb;
+  --border: #c2471c;
+  --shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+  --radius: 18px;
+}
+
+/* Hero adaptado */
+.hero {
+  background: linear-gradient(135deg, rgba(178,34,34,0.92), rgba(255,140,0,0.9));
+  border: 1px solid var(--border);
+  border-radius: 28px;
+  padding: 28px;
+  box-shadow: var(--shadow);
+  display: grid;
+  gap: 18px;
+  color: #fff;
+}
+
+/* Tarjetas Fighting */
+/* Fondo único para todas las tarjetas */
+.card {
+  background: linear-gradient(150deg, #b22222, #ff8c00); /* rojo → naranja Fighting */
+  color: #fff;
+  border-radius: var(--radius);
+  padding: 16px;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 44px rgba(0, 0, 0, 0.25);
+}
+
+/* Eliminar fondos por tipo */
+.card[class*="type-"] {
+  background: inherit !important;
+}
+
+/* Asegurar contraste en contenido interno */
+.card .name,
+.card .pill,
+.card .meta div,
+.card .meta span {
+  color: #fff;
+}
+
+.card .meta div {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  font-weight: 700;
+  border-radius: 12px;
+}
+
+.card .meta span {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--accent-strong); /* naranja intenso */
+}
+
+
+/* Botones Fighting */
+button {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+button:hover {
+  background: var(--accent-strong);
+  transform: scale(1.05);
+}
+
+/* Chips de tipo */
+.pill {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #fff;
+  background: var(--accent-strong);
+}
+.pill--fighting {
+  background: var(--accent);
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(120deg, var(--accent), var(--accent-strong)); /* rojo → naranja */
+  color: #fff;
+  padding: 8px 14px;
+  border-radius: 14px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  font-size: 13px;
+  width: fit-content;
+  box-shadow: 0 8px 20px rgba(178, 34, 34, 0.35); /* sombra Fighting */
+}
+
+h1 {
+  margin: 0;
+  font-size: 34px;
+  letter-spacing: -0.8px;
+  color: var(--accent); /* rojo Fighting */
+  text-shadow: 0 6px 22px rgba(178, 34, 34, 0.25);
+}
+
+p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 4px;
+}
+
+.search-form {
+  flex: 1;
+  min-width: 260px;
+  display: grid;
+  gap: 8px;
+}
+
+.search-form label {
+  font-weight: 700;
+  color: var(--accent-strong); /* naranja intenso */
+}
+
+.input-group {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+input {
+  flex: 1;
+  min-width: 200px;
+  padding: 12px 14px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: #fff;
+  font-size: 15px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px rgba(178, 34, 34, 0.25); /* glow Fighting */
+}
+
+button {
+  border: none;
+  background: linear-gradient(135deg, var(--accent), var(--accent-strong)); /* rojo → naranja Fighting */
+  color: #ffffff;
+  padding: 12px 16px;
+  border-radius: var(--radius);
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.15s;
+  box-shadow: 0 12px 30px rgba(178, 34, 34, 0.35); /* sombra Fighting */
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 36px rgba(255, 140, 0, 0.45); /* hover naranja intenso */
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* Botón principal para traer Fighting */
+.fighting-btn {
+  min-width: 200px;
+  padding: 14px 18px;
+  margin-top: 6px;
+  background: var(--accent); /* rojo Fighting */
+  color: #fff;
+  font-weight: 700;
+  border-radius: var(--radius);
+  box-shadow: 0 14px 32px rgba(178, 34, 34, 0.4);
+  transition: background 0.3s ease;
+}
+.fighting-btn:hover {
+  background: var(--accent-strong); /* naranja intenso */
+}
+
+.divider {
+  width: 32px;
+  height: 32px;
+  border-radius: 12px;
+  background: #fff;
+  border: 1px dashed var(--accent); /* Fighting rojo */
+  display: grid;
+  place-items: center;
+  color: var(--accent-strong); /* naranja intenso */
+  font-weight: 700;
+}
+
+.status {
+  margin: 18px 0;
+  padding: 12px 16px;
+  border-radius: var(--radius);
+  background: rgba(178, 34, 34, 0.05); /* fondo Fighting suave */
+  color: var(--accent); /* texto rojo Fighting */
+  border: 1px solid var(--accent-strong); /* borde naranja intenso */
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+  display: none;
+}
+
+.status.visible {
+  display: block;
+}
+
+/* Estado OK con tonos verdes */
+.status[data-tone="ok"] {
+  background: #f0fff4;
+  border-color: #bce7c9;
+  color: #2f7c4b;
+}
+
+/* Estado Error con Fighting rojo */
+.status[data-tone="error"] {
+  background: rgba(178, 34, 34, 0.08); /* fondo rojo suave */
+  border-color: var(--accent);         /* rojo Fighting */
+  color: var(--accent-strong);         /* naranja intenso */
+}
+
+.single {
+  margin-top: 10px;
+}
+
+.single h2,
+.fighting-section h2 {
+  letter-spacing: -0.3px;
+  color: var(--accent); /* títulos Fighting */
+}
+
+.section-header p {
+  margin-top: 4px;
+  color: var(--muted);
+}
+
+/* Tarjetas Fighting */
+.card {
+  background: linear-gradient(150deg, #b22222, #ff8c00); /* rojo → naranja Fighting */
+  color: #fff;
+  border-radius: var(--radius);
+  padding: 16px;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 44px rgba(178, 34, 34, 0.25); /* sombra Fighting */
+}
+/* Fondo del resultado individual */
+.card.single-card {
+  background: linear-gradient(150deg, #b22222, #ff8c00); /* rojo → naranja Fighting */
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+  color: #2d2a32; /* texto oscuro */
+}
+
+/* Fondo de los bloques de datos */
+.card.single-card .meta div {
+  background: #fbe3d3;
+  border: 1px solid #b22222;
+  border-radius: 12px;
+  padding: 10px 12px;
+  font-weight: 700;
+  color: #2d2a32;
+}
+
+/* Color de las etiquetas como “Altura”, “Peso” */
+.card.single-card .meta span {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  color: #b22222;
+}
+
+.single-card {
+  min-height: 220px;
+  display: grid;
+  gap: 12px;
+  position: relative;
+  overflow: hidden;
+}
+.single-card .placeholder {
+  color: var(--muted);
+  margin: 0;
+}
+.single-card.empty {
+  display: grid;
+  align-items: center;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Chips Fighting */
+/* Chips de tipo Pokémon */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 13px;
+  background: rgba(255, 255, 255, 0.15); /* fondo translúcido */
+  color: #fff; /* texto blanco para contraste */
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Opcional: destacar Fighting con color sólido */
+.pill.type-fighting {
+  background: var(--accent); /* rojo Fighting */
+  color: #fff;
+  border: none;
+}
+
+/* Si quieres que todos los tipos se vean igual, puedes usar solo .pill sin variantes */
+
+.types {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.name {
+  margin: 8px 0 4px;
+  font-size: 22px;
+  letter-spacing: -0.4px;
+  color: var(--accent); /* rojo Fighting */
+}
+h3.name {
+  color: #2d2a32 !important; /* texto oscuro */
+  font-size: 24px;
+  font-weight: 700;
+  text-align: center;
+  margin-top: 12px;
+}
+
+
+.meta {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.meta div {
+  background: #ffe0d3; /* naranja claro tipo Fire */
+}
+
+
+.meta span {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  color: #b22222; /* rojo Fighting para destacar etiquetas */
+}
+
+
+.sprite {
+  display: grid;
+  place-items: center;
+  background: linear-gradient(135deg, var(--accent), var(--accent-strong)); /* Fighting rojo → naranja */
+  border-radius: 16px;
+  padding: 12px;
+  border: 1px dashed var(--border);
+}
+
+.sprite img {
+  width: 160px;
+  height: 160px;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.4)); /* sombra Fighting */
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  margin-top: 12px;
+}
+
+.grid .card {
+  padding: 14px;
+  border-top: 4px solid var(--accent); /* borde Fighting */
+}
+
+.grid .sprite img {
+  width: 120px;
+  height: 120px;
+}
+
+.grid .name {
+  font-size: 18px;
+  margin-top: 6px;
+  color: var(--accent-strong); /* naranja intenso */
+}
+
+.grid .types {
+  margin-top: 6px;
+}
+
+.placeholder {
+  color: var(--muted);
+  text-align: center;
+}
+
+/* Tarjetas por tipo */
+.card.type-fire {
+  background: linear-gradient(150deg, #fff3ec, #ffe4da);
+}
+.card.type-water {
+  background: linear-gradient(150deg, #eef7ff, #e1f2ff);
+}
+.card.type-grass {
+  background: linear-gradient(150deg, #f1fff0, #e5f6df);
+}
+.card.type-electric {
+  background: linear-gradient(150deg, #fffcea, #fff3c2);
+}
+.card.type-psychic {
+  background: linear-gradient(150deg, #fff0f7, #ffe1ef);
+}
+.card.type-dragon {
+  background: linear-gradient(150deg, #eef0ff, #dbe0ff);
+}
+.card.type-fairy {
+  background: linear-gradient(150deg, #fff4fb, #ffe7f6);
+}
+.card.type-ice {
+  background: linear-gradient(150deg, #f1fbff, #e1f4ff);
+}
+.card.type-rock {
+  background: linear-gradient(150deg, #f9f3eb, #f1e6d8);
+}
+.card.type-ground {
+  background: linear-gradient(150deg, #fef6ec, #f7ead9);
+}
+.card.type-poison {
+  background: linear-gradient(150deg, #faf0ff, #f0e0ff);
+}
+.card.type-ghost {
+  background: linear-gradient(150deg, #f2f1ff, #e3e1ff);
+}
+.card.type-bug {
+  background: linear-gradient(150deg, #f4ffe8, #e9f7d9);
+}
+/* Fighting adaptado */
+.card.type-fighting {
+  background: linear-gradient(150deg, #b22222, #ff8c00); /* rojo → naranja Fighting */
+  color: #fff;
+}
+.card.type-dark {
+  background: linear-gradient(150deg, #f6f4f8, #ece9f1);
+}
+.card.type-steel {
+  background: linear-gradient(150deg, #f4f7fb, #e9edf3);
+}
+.card.type-normal {
+  background: linear-gradient(150deg, #f7f4ee, #efebe5);
+}
+.card.type-flying {
+  background: linear-gradient(150deg, #eef5ff, #e0edff);
+}
+
+/* Chips por tipo */
+.pill.type-fire { background: #ffe0d3; color: #c63b1e; }
+.pill.type-water { background: #dcefff; color: #1f6fbf; }
+.pill.type-grass { background: #e4f7dc; color: #3b7b1b; }
+.pill.type-electric { background: #fff2bf; color: #b57b00; }
+.pill.type-psychic { background: #ffd9f1; color: #b43782; }
+.pill.type-dragon { background: #dfe5ff; color: #3542c4; }
+.pill.type-fairy { background: #ffe7f6; color: #c13ba3; }
+.pill.type-ice { background: #def5ff; color: #2c8dac; }
+.pill.type-rock { background: #f1e2ce; color: #8c5d1d; }
+.pill.type-ground { background: #f6e6c8; color: #946321; }
+.pill.type-poison { background: #f0ddff; color: #6b2f9c; }
+.pill.type-ghost { background: #e6e4ff; color: #4a3ab9; }
+.pill.type-bug { background: #e8f5d8; color: #5f7c12; }
+/* Fighting adaptado */
+.pill.type-fighting { background: var(--accent); color: #fff; font-weight: 700; }
+.pill.type-dark { background: #ede9f3; color: #3a314a; }
+.pill.type-steel { background: #e6edf5; color: #3d607c; }
+.pill.type-flying { background: #e6f2ff; color: #3b6ea1; }
+.pill.type-normal { background: #f1ede6; color: #5a5246; }
+
+/* Solo para el número del Pokémon */
+.pill-number {
+  color: #b22222 !important;   /* rojo Fighting */
+  background: transparent !important;
+  border: none !important;
+  font-weight: 700;
+}
+
+
+
+/* Responsive */
+@media (max-width: 720px) {
+  .hero {
+    padding: 22px;
+  }
+  .actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .divider {
+    margin: 4px auto;
+  }
+  .sprite img {
+    width: 140px;
+    height: 140px;
+  }
+}
+ 
