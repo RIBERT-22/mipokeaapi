@@ -82,10 +82,10 @@ const renderSingle = (pokemon) => {
     </div>
     <h3 class="name">${capitalize(pokemon.name)}</h3>
     <div class="meta">
-      <div><span>Altura</span>${(pokemon.height / 10).toFixed(1)} m</div>
-      <div><span>Peso</span>${(pokemon.weight / 10).toFixed(1)} kg</div>
-      <div><span>Base XP</span>${pokemon.base_experience}</div>
-      <div><span>Habilidades</span>${abilities || "N/D"}</div>
+      <div><span>Altura: </span>${(pokemon.height / 10).toFixed(1)} m</div>
+      <div><span>Peso: </span>${(pokemon.weight / 10).toFixed(1)} kg</div>
+      <div><span>Base XP: </span>${pokemon.base_experience}</div>
+      <div><span>Habilidades: </span>${abilities || "N/D"}</div>
     </div>
   `;
 };
@@ -190,4 +190,5 @@ const handleFighting = async () => {
 // Eventos
 searchForm?.addEventListener("submit", handleSearch);
 fightingButton?.addEventListener("click", handleFighting);
+
 
